@@ -1,14 +1,24 @@
 before_script:
-  - npm install -q
-
-cache:
-  key: $CI_PROJECT_ID
-  paths:
-    - node_modules/
+  - npm_register ${NPM_TOKEN}
 
 stages:
+  - build
   - test
   - publish
+
+deps build:
+  stage: build
+  script:
+    - npm install -q
+    - npm run clean
+    - npm run build
+  artifacts:
+    paths:
+      - node_modules/
+      - build/
+    expire_in: 1 week
+  tags:
+    - lambda-nodejs
 
 lint:
   stage: test
@@ -17,12 +27,12 @@ lint:
   tags:
     - lambda-nodejs
 
-# unit-test:
-#   stage: test
-#   script:
-#     - npm test
-#   tags:
-#     - lambda-nodejs
+mocha:
+  stage: test
+  script:
+    - npm test
+  tags:
+    - lambda-nodejs
 
 npm:
   stage: publish
