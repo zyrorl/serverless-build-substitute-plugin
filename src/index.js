@@ -42,18 +42,22 @@ export default function (S) {
     }
 
     async substitute(e) {
+      let substitutes = [...this.config.substitute];
       if (
         this.config.functions &&
         this.config.functions[e.options.name] &&
         this.config.functions[e.options.name].substitute
       ) {
+        substitutes = [...this.config.functions[e.options.name].substitute, ...substitutes];
+      }
+
+      if (substitutes.length > 0) {
         SCli.log(`Substituting files for ${e.options.name}...`);
-        const substitutes = this.config.functions[e.options.name].substitute;
         for (const substitute of substitutes) {
           fs.accessSync(`${S.config.projectPath}/${substitute.from}`, fs.R_OK);
           substitute.to = Array.isArray(substitute.to) ? substitute.to : [substitute.to];
           for (const substituteFile of substitute.to) {
-            SCli.log(`Substituting ${substituteFile} from ${substitute.from}`);
+            SCli.log(`${substitute.from} => ${substituteFile}`);
             e.options.artifact.addFile(
               `${S.config.projectPath}/${substitute.from}`,
               substituteFile
@@ -61,6 +65,7 @@ export default function (S) {
           }
         }
       }
+
       return e;
     }
   }
