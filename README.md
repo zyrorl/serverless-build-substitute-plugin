@@ -1,6 +1,8 @@
 # Serverless Build Substitute Plugin
 
-This is a plugin for the [Serverless Build Plugin](https://github.com/nfour/serverless-build-plugin) and currently works on Serverless 0.5.x only.
+A [Serverless Build Plugin](https://github.com/nfour/serverless-build-plugin) to substitute files into a build (eg. AWS binaries into node_modules) prior to deployment.
+
+**NOTE:** currently works on Serverless 0.5.x only.
 
 Support for Serverless 1.0.x is coming once it has reached RC/Stable.
 

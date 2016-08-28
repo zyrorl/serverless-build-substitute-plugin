@@ -1,7 +1,7 @@
 {
   "name": "serverless-build-substitute-plugin",
   "version": "0.1.0",
-  "description": "",
+  "description": "A Serverless Build plugin to substitute files into a build (eg. AWS binaries into node_modules)",
   "main": "build/",
   "scripts": {
     "prepublish": "npm run clean && npm run build",
@@ -15,7 +15,7 @@
     "url": "git@src.temando.io:abilio.henrique/serverless-build-substitute-plugin.git"
   },
   "author": "Abilio Henrique <abilio.henrique@temando.com>",
-  "license": "SEE LICENSE IN LICENSE.md",
+  "license": "MIT",
   "devDependencies": {
     "babel-cli": "^6.11.4",
     "babel-core": "^6.13.2",
