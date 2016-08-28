@@ -31,6 +31,6 @@ npm:
     - npm run build
     - npm publish .
   only:
-    - tags@project-phoenix/service-client-factory
+    - tags@abilio.henrique/serverless-build-substitute-plugin
   tags:
     - lambda-nodejs
