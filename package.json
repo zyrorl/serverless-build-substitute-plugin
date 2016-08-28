@@ -1,6 +1,6 @@
 {
   "name": "serverless-build-substitute-plugin",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A Serverless Build plugin to substitute files into a build (eg. AWS binaries into node_modules)",
   "main": "build/",
   "scripts": {
