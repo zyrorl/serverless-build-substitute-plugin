@@ -7,7 +7,7 @@ cache:
     - node_modules/
 
 stages:
-  - test
+  # - test
   - publish
 
 lint:
@@ -17,12 +17,12 @@ lint:
   tags:
     - lambda-nodejs
 
-unit-test:
-  stage: test
-  script:
-    - npm test
-  tags:
-    - lambda-nodejs
+# unit-test:
+#   stage: test
+#   script:
+#     - npm test
+#   tags:
+#     - lambda-nodejs
 
 npm:
   stage: publish
