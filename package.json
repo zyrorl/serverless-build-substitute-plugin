@@ -1,0 +1,45 @@
+{
+  "name": "serverless-build-substitute-plugin",
+  "version": "0.0.0",
+  "description": "",
+  "main": "build/",
+  "scripts": {
+    "prepublish": "npm run clean && npm run build",
+    "test": "mocha --compilers js:babel-core/register --require babel-polyfill --recursive --timeout 15000 test/index",
+    "lint": "eslint \"src/**/*.js\" \"test/**/*.js\"",
+    "clean": "rm -Rf build",
+    "build": "babel src --out-dir build --copy-files"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@src.temando.io:abilio.henrique/serverless-build-substitute-plugin.git"
+  },
+  "author": "Abilio Henrique <abilio.henrique@temando.com>",
+  "license": "SEE LICENSE IN LICENSE.md",
+  "devDependencies": {
+    "babel-cli": "^6.11.4",
+    "babel-core": "^6.13.2",
+    "babel-eslint": "^6.1.2",
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-plugin-transform-async-to-module-method": "^6.8.0",
+    "babel-plugin-transform-runtime": "^6.12.0",
+    "babel-polyfill": "^6.13.0",
+    "babel-preset-es2015-node4": "^2.1.0",
+    "babel-preset-stage-1": "^6.13.0",
+    "babel-register": "^6.11.6",
+    "chai": "^3.5.0",
+    "chai-ajv-json-schema": "^1.0.0",
+    "dirty-chai": "^1.2.2",
+    "eslint": "^3.1.1",
+    "eslint-config-airbnb-base": "^5.0.0",
+    "eslint-plugin-import": "^1.12.0",
+    "mocha": "^2.5.3"
+  },
+  "dependencies": {
+    "bluebird": "^3.4.1",
+    "js-yaml": "^3.6.1"
+  },
+  "peerDependencies": {
+    "serverless-build-plugin": "^0.2.0-beta"
+  }
+}

@@ -1,0 +1,36 @@
+before_script:
+  - npm install -q
+
+cache:
+  key: $CI_PROJECT_ID
+  paths:
+    - node_modules/
+
+stages:
+  - test
+  - publish
+
+lint:
+  stage: test
+  script:
+    - npm run lint
+  tags:
+    - lambda-nodejs
+
+unit-test:
+  stage: test
+  script:
+    - npm test
+  tags:
+    - lambda-nodejs
+
+npm:
+  stage: publish
+  script:
+    - npm_register ${NPM_TOKEN}
+    - npm run build
+    - npm publish .
+  only:
+    - tags@project-phoenix/service-client-factory
+  tags:
+    - lambda-nodejs

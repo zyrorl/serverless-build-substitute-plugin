@@ -1,0 +1,8 @@
+app:
+  build: .
+  volumes:
+    - ~/.aws:/root/.aws
+    - .:/app
+  tty: true
+  environment:
+    SSH_AUTH_SOCK: /tmp/agent.sock
