@@ -7,7 +7,7 @@ cache:
     - node_modules/
 
 stages:
-  # - test
+  - test
   - publish
 
 lint:
