@@ -54,10 +54,12 @@ export default function (S) {
           substitute.to = Array.isArray(substitute.to) ? substitute.to : [substitute.to];
           for (const substituteFile of substitute.to) {
             SCli.log(`Substituting ${substituteFile} from ${substitute.from}`);
-            e.options.artifact.addFile(`${S.config.projectPath}/${substitute.from}`, substituteFile);
+            e.options.artifact.addFile(
+              `${S.config.projectPath}/${substitute.from}`,
+              substituteFile
+            );
           }
         }
-
       }
       return e;
     }
